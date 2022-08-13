@@ -1,9 +1,26 @@
-// Copy On Write; (Shadowing?) -> Before the write operation, it reads the same as the original.
-use std::borrow::Cow;
-//Foreign Function Interface
-use std::ffi::CStr;
-use std::os::raw::c_char;
-
+/// ## Raw Pointers
+///
+/// unsafe access
+///
+/// immutable raw pointer: `*const Type`
+///
+/// mutable raw pointer: `*mut Type`
+///
+/// Note: `*const Type` is a pointer points to a specific type
+///
+/// For example:
+///
+/// `*const String`: an immutable pointer points to a String;
+///
+/// Also: `*const Type` and `*mut Type` can be transform into each other and they just have slight difference
+///
+/// References in rust will be compiled to raw pointers,
+///
+/// which means they needn't to be declared within unsafe blocks,
+///
+/// but they still has the performance as raw pointers
+///
+///
 static B: [u8; 10] = [99, 97, 114, 114, 121, 116, 111, 119, 101, 108];
 static C: [u8; 11] = [99, 97, 114, 114, 121, 116, 111, 119, 101, 108, 0];
 fn main() {
