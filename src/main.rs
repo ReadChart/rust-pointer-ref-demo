@@ -1,3 +1,9 @@
+// Copy On Write; (Shadowing?) -> Before the write operation, it reads the same as the original.
+use std::borrow::Cow;
+//Foreign Function Interface
+use std::ffi::CStr;
+use std::os::raw::c_char;
+
 /// ## Raw Pointers
 ///
 /// unsafe access
